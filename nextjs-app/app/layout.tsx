@@ -50,6 +50,9 @@ export async function generateMetadata(): Promise<Metadata> {
     openGraph: {
       images: ogImage ? [ogImage] : [],
     },
+    other: {
+      "naver-site-verification": "c92e65df6e0b59465de73412105d0700ccb45b22",
+    },
   };
 }
 
