@@ -1,10 +1,10 @@
 import "./globals.css";
 
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { GeistMono } from "geist/font/mono";
+import { GeistSans } from "geist/font/sans";
 import type { Metadata } from "next";
 import { toPlainText, VisualEditing } from "next-sanity";
-import { GeistSans } from "geist/font/sans";
-import { GeistMono } from "geist/font/mono";
 import { draftMode } from "next/headers";
 import { Toaster } from "sonner";
 
@@ -27,6 +27,7 @@ export async function generateMetadata(): Promise<Metadata> {
     // Metadata should never contain stega
     stega: false,
   });
+  console.log(settings);
   const title = settings?.title || demo.title;
   const description = settings?.description || demo.description;
 
