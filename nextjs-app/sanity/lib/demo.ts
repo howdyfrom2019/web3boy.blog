@@ -2,7 +2,7 @@
  * Demo data used as placeholders and initial values for the blog
  */
 
-export const title = "Sanity + Next.js";
+export const title = "웹3보이의 결과노트";
 
 export const description = [
   {
