@@ -16,6 +16,7 @@ export default async function Page() {
                 {["frontend", "blockchain", "node.js"].map((val) => (
                   <div
                     className={"px-2 py-1 rounded-2xl bg-blue-600 text-white"}
+                    key={val}
                   >
                     {val}
                   </div>
