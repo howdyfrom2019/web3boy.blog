@@ -1,12 +1,12 @@
 import type { Metadata, ResolvingMetadata } from "next";
-import { notFound } from "next/navigation";
 import { type PortableTextBlock } from "next-sanity";
+import { notFound } from "next/navigation";
 import { Suspense } from "react";
 
 import Avatar from "@/app/components/Avatar";
 import CoverImage from "@/app/components/CoverImage";
-import { MorePosts } from "@/app/components/Posts";
 import PortableText from "@/app/components/PortableText";
+import { MorePosts } from "@/app/components/Posts";
 import { sanityFetch } from "@/sanity/lib/live";
 import { postPagesSlugs, postQuery } from "@/sanity/lib/queries";
 import { resolveOpenGraphImage } from "@/sanity/lib/utils";
@@ -35,7 +35,7 @@ export async function generateStaticParams() {
  */
 export async function generateMetadata(
   props: Props,
-  parent: ResolvingMetadata,
+  parent: ResolvingMetadata
 ): Promise<Metadata> {
   const params = await props.params;
   const { data: post } = await sanityFetch({
@@ -89,13 +89,13 @@ export default async function PostPage(props: Props) {
                   )}
               </div>
             </div>
-            <article className="gap-6 grid max-w-4xl">
+            <article className="gap-6 grid max-w-[1500px] mr-auto">
               <div className="">
                 <CoverImage image={post.coverImage} priority />
               </div>
               {post.content?.length && (
                 <PortableText
-                  className="max-w-2xl"
+                  className="max-w-[1500px]"
                   value={post.content as PortableTextBlock[]}
                 />
               )}

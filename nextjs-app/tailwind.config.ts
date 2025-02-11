@@ -1,8 +1,9 @@
-import type { Config } from "tailwindcss";
 import typography from "@tailwindcss/typography";
+import type { Config } from "tailwindcss";
 
 export default {
   content: ["./app/**/*.{ts,tsx}", "./sanity/**/*.{ts,tsx}"],
+  darkMode: "class",
   theme: {
     container: {
       center: true,
@@ -95,7 +96,8 @@ export default {
         },
       },
       fontFamily: {
-        sans: ["var(--font-inter)"],
+        sans: ["var(--font-geist-sans)"],
+        mono: ["var(--font-geist-mono)"],
       },
     },
   },

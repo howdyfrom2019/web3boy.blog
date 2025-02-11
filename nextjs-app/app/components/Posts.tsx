@@ -1,10 +1,10 @@
 import Link from "next/link";
 
-import { sanityFetch } from "@/sanity/lib/live";
-import { morePostsQuery, allPostsQuery } from "@/sanity/lib/queries";
-import { Post as PostType } from "@/sanity.types";
 import DateComponent from "@/app/components/Date";
 import OnBoarding from "@/app/components/Onboarding";
+import { Post as PostType } from "@/sanity.types";
+import { sanityFetch } from "@/sanity/lib/live";
+import { allPostsQuery, morePostsQuery } from "@/sanity/lib/queries";
 
 const Post = ({ post }: { post: PostType }) => {
   const { _id, title, slug, excerpt, date } = post;
@@ -20,7 +20,7 @@ const Post = ({ post }: { post: PostType }) => {
 
       <h3 className="mt-3 text-2xl font-semibold">
         <Link
-          className="hover:text-red-500 underline transition-colors"
+          className="hover:text-blue-500 underline transition-colors"
           href={`/posts/${slug}`}
         >
           {title}
@@ -89,8 +89,8 @@ export const AllPosts = async () => {
 
   return (
     <Posts
-      heading="Recent Posts"
-      subHeading={`${data.length === 1 ? "This blog post is" : `These ${data.length} blog posts are`} populated from your Sanity Studio.`}
+      heading="최근 발행된 포스트들"
+      subHeading={`${data.length === 1 ? "이 아티클이" : `이 ${data.length}개의 아티클들이`} 현재 가장 최근 발행되었습니다.`}
     >
       {data.map((post: any) => (
         <Post key={post._id} post={post} />
