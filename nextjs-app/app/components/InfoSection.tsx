@@ -11,7 +11,7 @@ type InfoProps = {
 export default function CTA({ block }: InfoProps) {
   return (
     <div className="container my-12">
-      <div className="max-w-3xl">
+      <div className="max-w-[1500px]">
         {block?.heading && (
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold">
             {block.heading}
