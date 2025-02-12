@@ -14,7 +14,7 @@ export default function CTA({ block }: CtaProps) {
       <div className="bg-gray-50 border border-gray-100 rounded-2xl max-w-[1500px]">
         <div className="px-12 py-12 flex flex-col gap-6">
           <div className="w-full flex flex-col gap-3">
-            <h2 className="text-3xl font-bold tracking-tight text-black sm:text-4xl">
+            <h2 className="text-3xl font-extrabold tracking-tight text-black sm:text-4xl">
               {block.heading}
             </h2>
             <p className="text-lg leading-8 text-gray-600">{block.text}</p>

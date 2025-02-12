@@ -14,7 +14,7 @@ export default function Header() {
               width={64}
               height={64}
             />
-            <span className="hidden lg:block text-xl pl-2 font-bold">
+            <span className="hidden lg:block text-xl pl-2 font-extrabold">
               web3.boy
             </span>
           </Link>
@@ -25,7 +25,7 @@ export default function Header() {
               className="flex items-center gap-4 md:gap-6 text-sm md:text-base font-normal"
             >
               <li>
-                <Link href="/about" className="font-medium">
+                <Link href="/about" className="font-semibold">
                   About Me
                 </Link>
               </li>
@@ -37,7 +37,7 @@ export default function Header() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <span className="font-medium sr-only sm:not-sr-only">
+                  <span className="font-semibold sr-only sm:not-sr-only">
                     View on GitHub
                   </span>
                   <svg

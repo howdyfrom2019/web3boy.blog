@@ -13,7 +13,7 @@ export default function CTA({ block }: InfoProps) {
     <div className="container my-12">
       <div className="max-w-[1500px]">
         {block?.heading && (
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold">
             {block.heading}
           </h2>
         )}

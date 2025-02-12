@@ -5,10 +5,10 @@
  * Once you have provided a url for the environment variable NEXT_PUBLIC_SANITY_STUDIO_URL, and have content, you can delete this file.
  */
 
-import Link from "next/link";
-import { useIsPresentationTool } from "next-sanity/hooks";
-import { createDataAttribute } from "next-sanity";
 import { uuid } from "@sanity/uuid";
+import { createDataAttribute } from "next-sanity";
+import { useIsPresentationTool } from "next-sanity/hooks";
+import Link from "next/link";
 
 import { studioUrl } from "@/sanity/lib/api";
 
@@ -37,7 +37,7 @@ const OnboardingMessage = ({
   return (
     <>
       <div>
-        <h3 className="text-2xl font-semibold">{message.title}</h3>
+        <h3 className="text-2xl font-bold">{message.title}</h3>
         <p className="mt-1 text-sm text-white/80">{message.description}</p>
       </div>
 
