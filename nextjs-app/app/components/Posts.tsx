@@ -90,7 +90,7 @@ export const AllPosts = async () => {
   return (
     <Posts
       heading="최근 발행된 포스트들"
-      subHeading={`${data.length === 1 ? "이 아티클이" : `이 ${data.length}개의 아티클들이`} 현재 가장 최근 발행되었습니다.`}
+      subHeading={`${data.length === 1 ? "이 아티클이" : `이 ${data.length}개의 아티클들이`} 최근 발행되었습니다.`}
     >
       {data.map((post: any) => (
         <Post key={post._id} post={post} />
