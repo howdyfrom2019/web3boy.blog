@@ -15,6 +15,8 @@ import {
 } from "next-sanity";
 
 import ResolvedLink from "@/app/components/ResolvedLink";
+import Image from "next/image";
+import { urlFor } from "@/sanity/lib/img-url";
 
 export default function CustomPortableText({
   className,
@@ -82,6 +84,18 @@ export default function CustomPortableText({
       link: ({ children, value: link }) => {
         return <ResolvedLink link={link}>{children}</ResolvedLink>;
       },
+    },
+    types: {
+      image: ({ value }) => (
+        <div className={"relative w-full"}>
+          <Image
+            src={urlFor(value).width(800).url()}
+            alt={value.alt || "Sanity Image"}
+            layout={"fill"}
+            objectFit={"contain"}
+          />
+        </div>
+      ),
     },
   };
 
