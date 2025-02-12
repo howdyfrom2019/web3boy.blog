@@ -15,8 +15,8 @@ import {
 } from "next-sanity";
 
 import ResolvedLink from "@/app/components/ResolvedLink";
-import Image from "next/image";
 import { urlFor } from "@/sanity/lib/img-url";
+import Image from "next/image";
 
 export default function CustomPortableText({
   className,
@@ -87,13 +87,35 @@ export default function CustomPortableText({
     },
     types: {
       image: ({ value }) => (
-        <div className={"relative w-full"}>
+        <div className={"relative w-full h-48 md:h-80 my-4"}>
           <Image
             src={urlFor(value).width(800).url()}
             alt={value.alt || "Sanity Image"}
             layout={"fill"}
             objectFit={"contain"}
           />
+        </div>
+      ),
+      table: ({ value }) => (
+        <div className={"overflow-x-auto"}>
+          <div className="overflow-x-auto">
+            <table className="table-auto border-collapse border border-gray-300 w-full">
+              <tbody>
+                {value.rows?.map((row: any, rowIndex: number) => (
+                  <tr key={rowIndex} className="border border-gray-300">
+                    {row.cells?.map((cell: string, cellIndex: number) => (
+                      <td
+                        key={cellIndex}
+                        className="border border-gray-300 px-4 py-2"
+                      >
+                        {cell}
+                      </td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       ),
     },
