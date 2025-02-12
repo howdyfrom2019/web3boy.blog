@@ -38,7 +38,7 @@ export default function Avatar({ person, date }: Props) {
       )}
       <div className="flex flex-col">
         {firstName && lastName && (
-          <div className="font-bold">
+          <div className="font-extrabold">
             {firstName} {lastName}
           </div>
         )}

@@ -1,13 +1,15 @@
-import "./globals.css";
+import "@/app/globals.css";
 
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { GeistMono } from "geist/font/mono";
 import { GeistSans } from "geist/font/sans";
 import type { Metadata } from "next";
 import { toPlainText, VisualEditing } from "next-sanity";
+import localFont from "next/font/local";
 import { draftMode } from "next/headers";
 import { Toaster } from "sonner";
 
+import { handleError } from "@/app/client-utils";
 import DraftModeToast from "@/app/components/DraftModeToast";
 import Footer from "@/app/components/Footer";
 import Header from "@/app/components/Header";
@@ -15,7 +17,6 @@ import * as demo from "@/sanity/lib/demo";
 import { sanityFetch, SanityLive } from "@/sanity/lib/live";
 import { settingsQuery } from "@/sanity/lib/queries";
 import { resolveOpenGraphImage } from "@/sanity/lib/utils";
-import { handleError } from "./client-utils";
 
 /**
  * Generate metadata for the page.
@@ -27,7 +28,6 @@ export async function generateMetadata(): Promise<Metadata> {
     // Metadata should never contain stega
     stega: false,
   });
-  console.log(settings);
   const title = settings?.title || demo.title;
   const description = settings?.description || demo.description;
 
@@ -56,6 +56,12 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
+const FourtyTwoDot = localFont({
+  src: "../public/fonts/42dotSans-VariableFont_wght.woff2",
+  variable: "--font-42dots",
+  display: "swap",
+});
+
 export default async function RootLayout({
   children,
 }: {
@@ -66,7 +72,7 @@ export default async function RootLayout({
   return (
     <html
       lang="en"
-      className={`${GeistSans.variable} ${GeistMono.variable} bg-white text-black font-sans antialiased`}
+      className={`${GeistSans.variable} ${GeistMono.variable} ${FourtyTwoDot.variable} bg-white text-black font-42dots antialiased`}
     >
       <body>
         <section className="min-h-screen pt-24">

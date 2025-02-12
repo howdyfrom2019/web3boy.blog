@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { Suspense } from "react";
 
 import { AllPosts } from "@/app/components/Posts";
@@ -22,27 +21,19 @@ export default async function Page() {
                   </div>
                 ))}
               </div>
-              <h1 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tighter text-black flex items-center">
-                <Link
-                  className="text-blue-500 whitespace-pre"
-                  href="https://x.com/jio_jake"
-                >
+              <h1 className="font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-tighter text-black flex items-center">
+                <em className="text-blue-500 not-italic whitespace-pre">
                   웹3보이
-                </Link>
-                <p className="text-[#000] whitespace-pre"> 의 기술 블로그</p>
+                </em>
+                <p className="text-[#000] whitespace-pre"> 의 결과노트</p>
               </h1>
             </div>
-            <div className="flex flex-col mt-6 space-y-2 sm:text-lg md:text-xl lg:text-2xl text-gray-700">
+            <div className="flex flex-col mt-6 space-y-2 text-base sm:text-lg md:text-xl lg:text-2xl text-gray-700">
               <p>
                 안녕하세요! 블록체인 도메인에 관심이 많은 프론트엔드
-                엔지니어입니다.
-              </p>
-              <p>
-                제가 가장 자신있어하는 영역은 비기술적인 요구사항을 사용자
-                경험까지 이어주는 일입니다.
-              </p>
-              <p>
-                프리랜서, 파트타임, 풀타임 모든 협업과 합류제안에 열려있습니다.
+                엔지니어입니다. 제가 가장 자신있어하는 영역은 비기술적인
+                요구사항을 사용자 경험까지 이어주는 일입니다. 프리랜서,
+                파트타임, 풀타임 모든 협업과 합류제안에 열려있습니다.
               </p>
             </div>
           </div>
