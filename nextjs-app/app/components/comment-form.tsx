@@ -61,10 +61,15 @@ const CommentForm = ({ postId }: { postId: string }) => {
       />
       {activeAccount?.address ? (
         <>
-          <button className={"px-4 rounded-full"} type="submit">
+          <button
+            className={
+              "px-4 py-3 min-w-[120px] rounded-full bg-blue-500 hover:bg-blue-500/90 text-white"
+            }
+            type="submit"
+          >
             댓글 달기
           </button>
-          <button onClick={() => disconnect(wallet!)}>연결해제</button>
+          {/* <button onClick={() => disconnect(wallet!)}>연결해제</button> */}
         </>
       ) : (
         <SigninButton />

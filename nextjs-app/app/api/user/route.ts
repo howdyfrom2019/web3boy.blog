@@ -20,7 +20,9 @@ export async function POST(req: NextRequest) {
     const newUser = {
       _type: "user",
       userId: walletAddress,
-      name,
+      name:
+        name +
+        `#${walletAddress.slice(2, 4)}${walletAddress.slice(walletAddress.length - 2)}`,
       createdAt: new Date().toISOString(),
       authProvider: provider,
     };

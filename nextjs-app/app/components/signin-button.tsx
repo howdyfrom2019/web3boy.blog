@@ -1,6 +1,7 @@
 "use client";
 
 import { locale } from "@/lib/navigator";
+import { generateKoreanNickname } from "@/lib/nickname";
 import { thirdwebClient } from "@/lib/thirdweb";
 import axios from "axios";
 import { createAuth } from "thirdweb/auth";
@@ -51,13 +52,12 @@ export default function SigninButton() {
             walletAddress: address,
           },
         });
-        console.log("existed user", userInfo);
 
         if (!userInfo.user) {
           const { data: createdUser } = await axios.post("/api/user", {
             walletAddress: address,
             provider,
-            name: address,
+            name: generateKoreanNickname(address as `0x${string}`),
           });
           console.log("created user", createdUser);
         }
