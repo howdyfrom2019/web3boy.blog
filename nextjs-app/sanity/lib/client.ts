@@ -20,4 +20,8 @@ export const client = createClient({
       return props.filterDefault(props);
     },
   },
+  token:
+    typeof window === "undefined"
+      ? process.env.SANITY_API_EDITOR_TOKEN
+      : undefined,
 });

@@ -13,6 +13,7 @@ import { handleError } from "@/app/client-utils";
 import DraftModeToast from "@/app/components/DraftModeToast";
 import Footer from "@/app/components/Footer";
 import Header from "@/app/components/Header";
+import Provider from "@/provider";
 import * as demo from "@/sanity/lib/demo";
 import { sanityFetch, SanityLive } from "@/sanity/lib/live";
 import { settingsQuery } from "@/sanity/lib/queries";
@@ -74,25 +75,27 @@ export default async function RootLayout({
       lang="en"
       className={`${GeistSans.variable} ${GeistMono.variable} ${FourtyTwoDot.variable} bg-white text-black font-42dots antialiased`}
     >
-      <body>
-        <section className="min-h-screen pt-24">
-          {/* The <Toaster> component is responsible for rendering toast notifications used in /app/client-utils.ts and /app/components/DraftModeToast.tsx */}
-          <Toaster />
-          {isDraftMode && (
-            <>
-              <DraftModeToast />
-              {/*  Enable Visual Editing, only to be rendered when Draft Mode is enabled */}
-              <VisualEditing />
-            </>
-          )}
-          {/* The <SanityLive> component is responsible for making all sanityFetch calls in your application live, so should always be rendered. */}
-          <SanityLive onError={handleError} />
-          <Header />
-          <main className="">{children}</main>
-          <Footer />
-        </section>
-        <SpeedInsights />
-      </body>
+      <Provider>
+        <body>
+          <section className="min-h-screen pt-24">
+            {/* The <Toaster> component is responsible for rendering toast notifications used in /app/client-utils.ts and /app/components/DraftModeToast.tsx */}
+            <Toaster />
+            {isDraftMode && (
+              <>
+                <DraftModeToast />
+                {/*  Enable Visual Editing, only to be rendered when Draft Mode is enabled */}
+                <VisualEditing />
+              </>
+            )}
+            {/* The <SanityLive> component is responsible for making all sanityFetch calls in your application live, so should always be rendered. */}
+            <SanityLive onError={handleError} />
+            <Header />
+            <main className="">{children}</main>
+            <Footer />
+          </section>
+          <SpeedInsights />
+        </body>
+      </Provider>
     </html>
   );
 }

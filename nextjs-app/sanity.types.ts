@@ -68,6 +68,42 @@ export type Geopoint = {
   alt?: number;
 };
 
+export type Comment = {
+  _id: string;
+  _type: "comment";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  name?: {
+    _ref: string;
+    _type: "reference";
+    _weak?: boolean;
+    [internalGroqTypeReferenceTo]?: "user";
+  };
+  content: string;
+  timestamp?: string;
+  edited?: boolean;
+  replies?: Array<{
+    _ref: string;
+    _type: "reference";
+    _weak?: boolean;
+    _key: string;
+    [internalGroqTypeReferenceTo]?: "comment";
+  }>;
+};
+
+export type User = {
+  _id: string;
+  _type: "user";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  userId: string;
+  name: string;
+  authProvider?: string;
+  createdAt?: string;
+};
+
 export type CallToAction = {
   _type: "callToAction";
   heading: string;
@@ -130,6 +166,25 @@ export type InfoSection = {
     level?: number;
     _type: "block";
     _key: string;
+  } | {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "image";
+    _key: string;
+  } | {
+    rows?: Array<{
+      cells?: Array<string>;
+      _key: string;
+    }>;
+    _type: "table";
+    _key: string;
   }>;
 };
 
@@ -163,6 +218,25 @@ export type BlockContent = Array<{
   }>;
   level?: number;
   _type: "block";
+  _key: string;
+} | {
+  asset?: {
+    _ref: string;
+    _type: "reference";
+    _weak?: boolean;
+    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+  };
+  hotspot?: SanityImageHotspot;
+  crop?: SanityImageCrop;
+  alt?: string;
+  _type: "image";
+  _key: string;
+} | {
+  rows?: Array<{
+    cells?: Array<string>;
+    _key: string;
+  }>;
+  _type: "table";
   _key: string;
 }>;
 
@@ -212,6 +286,26 @@ export type Post = {
     _weak?: boolean;
     [internalGroqTypeReferenceTo]?: "person";
   };
+  comments?: Array<{
+    name?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "user";
+    };
+    content: string;
+    timestamp?: string;
+    edited?: boolean;
+    replies?: Array<{
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      _key: string;
+      [internalGroqTypeReferenceTo]?: "comment";
+    }>;
+    _type: "comment";
+    _key: string;
+  }>;
 };
 
 export type Person = {
@@ -460,7 +554,7 @@ export type SanityAssistSchemaTypeField = {
   } & SanityAssistInstruction>;
 };
 
-export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | CallToAction | Link | InfoSection | BlockContent | Page | Post | Person | Slug | Settings | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata | SanityAssistInstructionTask | SanityAssistTaskStatus | SanityAssistSchemaTypeAnnotations | SanityAssistOutputType | SanityAssistOutputField | SanityAssistInstructionContext | AssistInstructionContext | SanityAssistInstructionUserInput | SanityAssistInstructionPrompt | SanityAssistInstructionFieldRef | SanityAssistInstruction | SanityAssistSchemaTypeField;
+export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | Comment | User | CallToAction | Link | InfoSection | BlockContent | Page | Post | Person | Slug | Settings | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata | SanityAssistInstructionTask | SanityAssistTaskStatus | SanityAssistSchemaTypeAnnotations | SanityAssistOutputType | SanityAssistOutputField | SanityAssistInstructionContext | AssistInstructionContext | SanityAssistInstructionUserInput | SanityAssistInstructionPrompt | SanityAssistInstructionFieldRef | SanityAssistInstruction | SanityAssistSchemaTypeField;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./sanity/lib/queries.ts
 // Variable: settingsQuery
@@ -553,6 +647,27 @@ export type GetPageQueryResult = {
       level?: number;
       _type: "block";
       _key: string;
+    } | {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      alt?: string;
+      _type: "image";
+      _key: string;
+      markDefs: null;
+    } | {
+      rows?: Array<{
+        cells?: Array<string>;
+        _key: string;
+      }>;
+      _type: "table";
+      _key: string;
+      markDefs: null;
     }> | null;
   }> | null;
 } | null;
@@ -667,6 +782,27 @@ export type PostQueryResult = {
     level?: number;
     _type: "block";
     _key: string;
+  } | {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "image";
+    _key: string;
+    markDefs: null;
+  } | {
+    rows?: Array<{
+      cells?: Array<string>;
+      _key: string;
+    }>;
+    _type: "table";
+    _key: string;
+    markDefs: null;
   }> | null;
   _id: string;
   status: "draft" | "published";
