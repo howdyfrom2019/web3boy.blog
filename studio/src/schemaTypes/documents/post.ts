@@ -82,6 +82,12 @@ export const post = defineType({
       type: 'reference',
       to: [{type: 'person'}],
     }),
+    defineField({
+      name: 'comments',
+      type: 'array',
+      title: 'Comments',
+      of: [{type: 'comment'}],
+    }),
   ],
   // List preview configuration. https://www.sanity.io/docs/previews-list-views
   preview: {

@@ -4,6 +4,8 @@ import { notFound } from "next/navigation";
 import { Suspense } from "react";
 
 import Avatar from "@/app/components/Avatar";
+import CommentForm from "@/app/components/comment-form";
+import CommentsRenderer from "@/app/components/comments-renderer";
 import CoverImage from "@/app/components/CoverImage";
 import PortableText from "@/app/components/PortableText";
 import { MorePosts } from "@/app/components/Posts";
@@ -101,6 +103,12 @@ export default async function PostPage(props: Props) {
               )}
             </article>
           </div>
+        </div>
+      </div>
+      <div className={"mt-16 border-t border-gray-100"}>
+        <div className={"container my-12 lg:my-24 grid gap-12"}>
+          <CommentsRenderer postId={post._id} />
+          <CommentForm postId={post._id} />
         </div>
       </div>
       <div className="border-t border-gray-100">
