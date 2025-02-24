@@ -74,12 +74,7 @@ export type Comment = {
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
-  name?: {
-    _ref: string;
-    _type: "reference";
-    _weak?: boolean;
-    [internalGroqTypeReferenceTo]?: "user";
-  };
+  name: string;
   content: string;
   timestamp?: string;
   edited?: boolean;
@@ -287,12 +282,7 @@ export type Post = {
     [internalGroqTypeReferenceTo]?: "person";
   };
   comments?: Array<{
-    name?: {
-      _ref: string;
-      _type: "reference";
-      _weak?: boolean;
-      [internalGroqTypeReferenceTo]?: "user";
-    };
+    name: string;
     content: string;
     timestamp?: string;
     edited?: boolean;
