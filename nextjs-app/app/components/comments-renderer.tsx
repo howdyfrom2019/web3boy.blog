@@ -20,7 +20,7 @@ export default async function CommentsRenderer({ postId }: { postId: string }) {
   return (
     <div className={"flex flex-col w-full gap-3"}>
       <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl">
-        댓글{comments?.length === 0 ? "" : ` (${comments?.length})`}
+        댓글{comments?.length === 0 ? "" : ` (${comments?.length} ?? 0)`}
       </h2>
       <hr />
       {comments?.length === 0 && <p>아직 댓글이 없습니다.</p>}
