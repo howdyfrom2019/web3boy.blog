@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^4.0.0",
+    "@next/third-parties": "^15.2.1",
     "@sanity/client": "^6.27.2",
     "@sanity/image-url": "^1.1.0",
     "@sanity/uuid": "^3.0.2",

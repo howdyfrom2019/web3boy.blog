@@ -22,7 +22,6 @@ const wallets = [
   createWallet("com.binance"),
 ];
 
-console.log(process.env.NEXT_PUBLIC_THIRDWEB_SECRET_KEY);
 const thirdwebAuth = createAuth({
   domain:
     process.env.NEXT_PUBLIC_SANITY_DATASET === "develop"
@@ -59,7 +58,6 @@ export default function SigninButton() {
             provider,
             name: generateKoreanNickname(address as `0x${string}`),
           });
-          console.log("created user", createdUser);
         }
       }}
       connectButton={{

@@ -18,6 +18,7 @@ import * as demo from "@/sanity/lib/demo";
 import { sanityFetch, SanityLive } from "@/sanity/lib/live";
 import { settingsQuery } from "@/sanity/lib/queries";
 import { resolveOpenGraphImage } from "@/sanity/lib/utils";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 /**
  * Generate metadata for the page.
@@ -53,6 +54,7 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     other: {
       "naver-site-verification": "c92e65df6e0b59465de73412105d0700ccb45b22",
+      "google-site-verification": "ROkX_3h6GmznkptWn_YfVrVbbVjEyz49cKYfBHyxICw",
     },
   };
 }
@@ -75,8 +77,8 @@ export default async function RootLayout({
       lang="en"
       className={`${GeistSans.variable} ${GeistMono.variable} ${FourtyTwoDot.variable} bg-white text-black font-42dots antialiased`}
     >
-      <Provider>
-        <body>
+      <body>
+        <Provider>
           <section className="min-h-screen pt-24">
             {/* The <Toaster> component is responsible for rendering toast notifications used in /app/client-utils.ts and /app/components/DraftModeToast.tsx */}
             <Toaster />
@@ -94,8 +96,9 @@ export default async function RootLayout({
             <Footer />
           </section>
           <SpeedInsights />
-        </body>
-      </Provider>
+        </Provider>
+      </body>
+      <GoogleAnalytics gaId={"GTM-TN8B783G"} />
     </html>
   );
 }

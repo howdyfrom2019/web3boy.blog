@@ -37,7 +37,6 @@ const CommentForm = ({ postId }: { postId: string }) => {
         name: activeAccount.address,
         content: data.content,
       });
-      console.log(newComment);
     } catch (error) {
       console.error(error);
     }
