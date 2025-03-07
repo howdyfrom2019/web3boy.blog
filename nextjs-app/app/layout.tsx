@@ -98,7 +98,7 @@ export default async function RootLayout({
           <SpeedInsights />
         </Provider>
       </body>
-      <GoogleAnalytics gaId={"GTM-TN8B783G"} />
+      <GoogleAnalytics gaId={"G-NL9TPL7XTE"} />
     </html>
   );
 }
