@@ -1,18 +1,10 @@
 import { Suspense } from "react";
 
+import DateStatus from "@/app/components/custom/date-status";
 import { AllPosts } from "@/app/components/Posts";
 import Link from "next/link";
 
 export default async function Page() {
-  const hours = new Date().getHours();
-  const dateStatus =
-    hours < 12
-      ? hours < 6
-        ? "새벽이 깊네요.🌙"
-        : "좋은 아침입니다.☀️"
-      : hours < 19
-        ? "좋은 오후입니다.🥤"
-        : "즐거운 저녁이네요.🍕";
   return (
     <>
       <div className="bg-gradient-to-r from-blue-100 from-0% via-white via-30%  relative">
@@ -40,10 +32,11 @@ export default async function Page() {
             </div>
             <div className="flex flex-col mt-6 space-y-2 text-base sm:text-lg md:text-xl lg:text-2xl text-gray-700">
               <p>
-                {dateStatus} 전 블록체인에 관심이 많은 프로덕트 엔지니어입니다.
-                제가 가장 자신있어하는 영역은 비기술적인 요구사항을 사용자
-                경험까지 이어주는 일입니다. 프리랜서, 파트타임, 풀타임 모든
-                협업과 합류제안에 열려있습니다.
+                {<DateStatus />} 전 Web3와 블록체인에 관심이 많은 프로덕트
+                엔지니어입니다. 제가 가장 자신있어하는 영역은 비기술적인
+                요구사항을 사용자 경험까지 이어주는 일입니다. 이 블로그에서는
+                제가 고민했던 내용 중 한국 빌더분들에게 도움이 될 만한 내용을
+                모아서 정리하고 있습니다.
               </p>
               <Link
                 className={
@@ -51,7 +44,7 @@ export default async function Page() {
                 }
                 href={"/about"}
               >
-                저에 대해 더 알고 싶다면?
+                More about me
                 <svg
                   className={"stroke-blue-500"}
                   xmlns="http://www.w3.org/2000/svg"
