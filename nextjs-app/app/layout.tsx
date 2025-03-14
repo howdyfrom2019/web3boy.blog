@@ -53,8 +53,8 @@ export async function generateMetadata(): Promise<Metadata> {
       images: ogImage ? [ogImage] : [],
     },
     other: {
-      "naver-site-verification": "c92e65df6e0b59465de73412105d0700ccb45b22",
       "google-site-verification": "ROkX_3h6GmznkptWn_YfVrVbbVjEyz49cKYfBHyxICw",
+      "naver-site-verification": "78a02469f59bca55cb7625d2334d6d4844debc34",
     },
   };
 }
